@@ -1,6 +1,4 @@
-file_path = 'day1.txt'
-
-def day1_pt1():
+def day1_pt1(file_path):
     
     distances = []
     left_list  = []
@@ -38,5 +36,6 @@ def day1_pt2(left_list, right_list):
     
 
 if __name__ == "__main__":
-    left_list, right_list = day1_pt1()
+    file_path = 'day1.txt'
+    left_list, right_list = day1_pt1(file_path)
     day1_pt2(left_list, right_list)
