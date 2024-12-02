@@ -10,6 +10,9 @@ with open(file_path, 'r') as file:
         left_list.append(row[0])
         right_list.append(row[1])
         
+left_list.sort()
+right_list.sort()
+
 for i in range(len(left_list)):
     left = left_list[i]
     right = right_list[i]
