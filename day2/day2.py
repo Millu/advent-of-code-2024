@@ -1,25 +1,40 @@
 def day2_pt1(file_path):
-    safe_levels = 0
+    
+    total_safe_levels = 0
 
     with open(file_path, 'r') as file:
         for line in file:
             level = line.strip().split(" ")
             direction = ''
-            i = 1
-            for i in range(3):
-                diff = abs(int(level[i]) - int(level[i-1]))
-                if diff >= 1 and diff <= 3:
-                    if int(level[i]) > int(level[i-1]):
-                        direction = 'increasing'
-                    else:
-                        direction = 'decreasing'                    
-                        
-                if i > 1 and direction == 'increasing' and int(level[i]) > int(level[i-2]):
-                        safe_levels += 1
-                elif i > 1 and direction == 'decreasing' and int(level[i]) < int(level[i-2]):
-                        safe_levels += 1
+            is_level_safe = False
+            
+            if int(level[1]) > int(level[0]):
+                direction = 'increasing'
+            else:
+                direction = 'decreasing'
 
-    print("Safe Levels: ", safe_levels)
+            for i in range(1,len(level)):
+
+                diff = abs(int(level[i]) - int(level[i-1]))
+                
+                if diff >= 1 and diff <= 3:
+                    if i > 1 and direction == 'increasing' and int(level[i]) > int(level[i-1]):
+                        is_level_safe = True
+                    elif i > 1 and direction == 'decreasing' and int(level[i]) < int(level[i-1]):
+                        is_level_safe = True
+                    elif i == 1:
+                         pass
+                    else: 
+                        is_level_safe = False
+                        break
+                else:
+                    is_level_safe = False
+                    break
+            
+            if is_level_safe:
+                total_safe_levels += 1
+
+    print("Safe Levels: ", total_safe_levels)
                         
 
 if __name__ == "__main__":
@@ -28,4 +43,6 @@ if __name__ == "__main__":
     day2_pt1(file_path)
 
         
+    
+
     
