@@ -38,6 +38,14 @@ def day2_pt1(file_path):
 
 def day2_pt2(file_path):
     # https://adventofcode.com/2024/day/2#part2
+
+    # Psuedo code:
+    # If a number makes the level unsafe:
+    # Delete the number from the list, add 1 to the unsafe level counter and check the list again
+    # If the level is found unsafe and the unsafe level counter is > 1 then the level is unsafe
+
+
+
     total_safe_levels = 0
 
     with open(file_path, 'r') as file:
