@@ -13,19 +13,18 @@ def day2_pt1(file_path):
                         direction = 'increasing'
                     else:
                         direction = 'decreasing'                    
+                        
                 if i > 1 and direction == 'increasing' and int(level[i]) > int(level[i-2]):
                         safe_levels += 1
-                        print("safe", level)
                 elif i > 1 and direction == 'decreasing' and int(level[i]) < int(level[i-2]):
                         safe_levels += 1
-                        print("safe", level)
 
     print("Safe Levels: ", safe_levels)
                         
 
 if __name__ == "__main__":
     
-    file_path = 'day2_example.txt'
+    file_path = 'day2.txt'
     day2_pt1(file_path)
 
         
