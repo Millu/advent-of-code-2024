@@ -13,12 +13,11 @@ def day3_pt1(file):
     for i in matches:
         numbers = re.findall('([0-9]*)', i)
         numbers[:] = [x for x in numbers if x]
-        print(numbers)
         sum += int(numbers[0]) * int(numbers[1])
         
     print('Sum:', sum)        
-        
+
 
 if __name__ == "__main__":
-    file_name = 'day3.txt'
+    file_name = 'day3_example.txt'
     day3_pt1(file_name)
